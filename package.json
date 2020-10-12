@@ -1,0 +1,63 @@
+{
+  "name": "file-structure",
+  "version": "1.0.0",
+  "description": "Define and manage file structures",
+  "license": "MIT",
+  "author": {
+    "name": "Connor White",
+    "email": "connor.bcw@gmail.com",
+    "url": "https://connorwhite.org"
+  },
+  "homepage": "https://connorwhite.org/github/file-structure",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bconnorwhite/file-structure.git"
+  },
+  "keywords": [
+    "file",
+    "structure",
+    "fs",
+    "manage",
+    "define",
+    "directory",
+    "package",
+    "dir",
+    "directories",
+    "files"
+  ],
+  "files": [
+    "build"
+  ],
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "bob build",
+    "commit": "bob commit",
+    "lint": "bob lint",
+    "release": "bob publish",
+    "test": "bob test"
+  },
+  "dependencies": {
+    "fs-safe": "^1.1.2",
+    "read-file-safe": "^1.0.10",
+    "read-lcov-safe": "^1.0.2",
+    "read-md-safe": "^1.0.3",
+    "types-pkg-json": "^1.2.1",
+    "types-tsconfig": "^1.2.0",
+    "write-md-safe": "^1.1.0"
+  },
+  "devDependencies": {
+    "@bconnorwhite/bob": "^2.8.0",
+    "@types/object-map": "^1.0.1"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-bob"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "bob lint commit"
+    }
+  },
+  "npmpackagejsonlint": {
+    "extends": "npm-package-json-lint-config-bob"
+  }
+}
