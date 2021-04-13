@@ -1,3 +1,4 @@
+import merge from "deepmerge";
 import path, { Path, PathHook, Parent } from "./path";
 import {
   readDir,
@@ -17,7 +18,13 @@ export type Files = {
   [key: string]: PathHook;
 };
 
-export interface Directory<F extends Files> extends Path {
+function addFiles<F extends Files, N extends Files>(parent: Parent, name: string, files: F, newFiles: N): Directory<F & N> {
+  const combinedFiles = merge(files, newFiles) as F & N;
+  return directory(name, combinedFiles)(parent);
+}
+
+export interface Directory<F extends Files = Files> extends Path {
+  add: <N extends Files>(files: N) => Directory<F & N>;
   exists: () => Promise<boolean | undefined>;
   read: (options?: ReadDirOptions) => Promise<string[] | undefined>;
   write: (options?: WriteDirOptions) => Promise<boolean | undefined>;
@@ -26,7 +33,6 @@ export interface Directory<F extends Files> extends Path {
   files: () => {
     [K in keyof F]: ReturnType<F[K]>;
   };
-  _files: F;
 }
 
 function getFiles<F extends Files>(dir: Directory<F>, files: F) {
@@ -43,14 +49,14 @@ export function directory<F extends Files>(name: string, files: F = {} as F): Di
     const dirPath = path(parent, name);
     const dir: Directory<F> = {
       ...dirPath,
+      add: <N extends Files>(newFiles: N): Directory<F & N> => addFiles(parent, name, files, newFiles),
       exists: () => dirExists(dirPath.path),
       read: (options?: ReadDirOptions) => readDir(dirPath.path, options),
       write: (options?: WriteDirOptions) => writeDir(dirPath.path, options),
       remove: (options?: RemoveDirOptions) => removeDir(dirPath.path, options),
       watch: () => watchDir(dirPath.path),
-      files: () => getFiles(dir, files),
-      _files: files
-    }
+      files: () => getFiles(dir, files)
+    };
     return dir;
-  }
+  };
 }

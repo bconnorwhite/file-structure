@@ -6,6 +6,11 @@ test("empty root", () => {
   expect(structure.files()).toEqual({});
 });
 
+test("root with path", () => {
+  const structure = root("/test");
+  expect(structure.path).toEqual("/test");
+});
+
 test("files", () => {
   const structure = root({
     file: file("file.txt"),

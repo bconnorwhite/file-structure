@@ -66,6 +66,13 @@ structure.files().source.remove();
 structure.files().source.watch();
 ```
 
+Files can be added later to directories:
+```ts
+directory.add({
+  myNewFile: file("test.txt")
+});
+```
+
 Several other file types are included with specialized return types:
 
 ```ts
