@@ -10,7 +10,7 @@ import { fileType, FileBase, FileType, FileBaseHook } from "./";
 
 export interface File extends FileBase {
   read: <T extends Args>(...[options]: T) => Promise<ReturnValue<T>>;
-  write: () => Promise<boolean | undefined>;
+  write: (content?: string | Buffer, options?: WriteFileOptions) => Promise<boolean | undefined>;
   makeExecutable: () => Promise<boolean | undefined>;
 }
 
