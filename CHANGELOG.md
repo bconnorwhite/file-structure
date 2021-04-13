@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/bconnorwhite/file-structure/compare/v1.1.0...v1.2.0) (2021-04-13)
+
+
+### Features
+
+* add exists options, avoid overwrite option ([4a0aff9](https://github.com/bconnorwhite/file-structure/commit/4a0aff9f10058c07a5c2e4fbeb7435a9cd26e1fa))
+
+
+
 # [1.1.0](https://github.com/bconnorwhite/file-structure/compare/v1.0.0...v1.1.0) (2021-04-13)
 
 
