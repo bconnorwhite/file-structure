@@ -1,4 +1,4 @@
-import { removeFile, watchFile, FileWatcher, fileExists } from "fs-safe";
+import { removeFile, watchFile, FileWatcher, fileExists, FileExistsOptions } from "fs-safe";
 import path, { Parent, Path, PathHook } from "../path";
 
 type FileFields = {
@@ -21,7 +21,7 @@ export function fileType(fields: (filePath: string) => FileFields): FileType {
       const pathFields = path(parent, name);
       return {
         ...pathFields,
-        exists: () => fileExists(pathFields.path),
+        exists: (options?: FileExistsOptions) => fileExists(pathFields.path, options),
         remove: () => removeFile(pathFields.path),
         watch: () => watchFile(pathFields.path),
         ...fields(pathFields.path)

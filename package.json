@@ -37,7 +37,7 @@
     "test": "bob test"
   },
   "dependencies": {
-    "fs-safe": "^1.1.2",
+    "fs-safe": "^1.2.0",
     "read-file-safe": "^1.0.10",
     "read-lcov-safe": "^1.0.2",
     "read-md-safe": "^1.0.4",

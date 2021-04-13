@@ -9,7 +9,8 @@ import {
   RemoveDirOptions,
   watchDir,
   DirWatcher,
-  dirExists
+  dirExists,
+  DirExistsOptions
 } from "fs-safe";
 
 type DirectoryHook<F extends Files> = PathHook<Directory<F>>;
@@ -25,7 +26,7 @@ function addFiles<F extends Files, N extends Files>(parent: Parent, name: string
 
 export interface Directory<F extends Files = Files> extends Path {
   add: <N extends Files>(files: N) => Directory<F & N>;
-  exists: () => Promise<boolean | undefined>;
+  exists: (options?: DirExistsOptions) => Promise<boolean | undefined>;
   read: (options?: ReadDirOptions) => Promise<string[] | undefined>;
   write: (options?: WriteDirOptions) => Promise<boolean | undefined>;
   remove: (options?: RemoveDirOptions) => Promise<boolean | undefined>;
@@ -50,7 +51,7 @@ export function directory<F extends Files>(name: string, files: F = {} as F): Di
     const dir: Directory<F> = {
       ...dirPath,
       add: <N extends Files>(newFiles: N): Directory<F & N> => addFiles(parent, name, files, newFiles),
-      exists: () => dirExists(dirPath.path),
+      exists: (options?: DirExistsOptions) => dirExists(dirPath.path, options),
       read: (options?: ReadDirOptions) => readDir(dirPath.path, options),
       write: (options?: WriteDirOptions) => writeDir(dirPath.path, options),
       remove: (options?: RemoveDirOptions) => removeDir(dirPath.path, options),

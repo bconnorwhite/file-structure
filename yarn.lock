@@ -3229,10 +3229,10 @@ diff-sequences@^26.3.0:
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-26.3.0.tgz#62a59b1b29ab7fd27cef2a33ae52abe73042d0a2"
   integrity sha512-5j5vdRcw3CNctePNYN0Wy2e/JbWT6cAYnXv5OuqPhDpyCGc0uLu2TK0zOCJWNB9kOIfYMSpIulRaDgIi4HJ6Ig==
 
-dir-exists-safe@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dir-exists-safe/-/dir-exists-safe-1.0.1.tgz#efa3f0ec7791cc70de57bb49b6fc60459c9428b3"
-  integrity sha512-v1jZGrhJAtX5OEvMKCJJPhIN0E22mybyf4kjHTKFHKBce6Hks1F5PxqpiYDMjli2IfUhp2TDubmePZNEjY025A==
+dir-exists-safe@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dir-exists-safe/-/dir-exists-safe-1.1.0.tgz#1dfd07afd1bce0e1a6a5cd1c24e35c9b0a0867ff"
+  integrity sha512-QbUvIJVIRN3zUdJlD+p4d8v2i8J5ISImhjWA7rcKc69XY5T1u850AVQqnvtiIQOJwGK+fBYGP8Tdw1d8cvXPvw==
 
 dir-glob@^3.0.1:
   version "3.0.1"
@@ -3757,10 +3757,10 @@ file-entry-cache@^5.0.1:
   dependencies:
     flat-cache "^2.0.1"
 
-file-exists-safe@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/file-exists-safe/-/file-exists-safe-1.0.2.tgz#7333d50000a20b7b09c9f7ce8fd1703f129975bb"
-  integrity sha512-3aWrAwFD5D56q/ITYYnTqMg/HYD05pbZnMJ36YJOHyUcMWW4CR5/M2/9sGuNL4J+gUX7LDuCOMxKkt3Fw6JHIg==
+file-exists-safe@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/file-exists-safe/-/file-exists-safe-1.1.0.tgz#db73e875853d47a371f1f3cbec9e6b321e9096df"
+  integrity sha512-F0gcLPWcrLnYxlU46sf0UdgDsVaYCDyVVVsT1fpfUJ726R+GmS220+6LCPT1xbU8r6lCrwlG1gnKLF7slnObQw==
 
 file-uri-to-path@1.0.0:
   version "1.0.0"
@@ -3938,13 +3938,13 @@ fs-readdir-recursive@^1.1.0:
   resolved "https://registry.yarnpkg.com/fs-readdir-recursive/-/fs-readdir-recursive-1.1.0.tgz#e32fc030a2ccee44a6b5371308da54be0b397d27"
   integrity sha512-GNanXlVr2pf02+sPN40XN8HG+ePaNcvM0q5mZBd668Obwb0yD5GiUbZOFgwn8kGMY6I3mdyDJzieUy3PTYyTRA==
 
-fs-safe@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/fs-safe/-/fs-safe-1.1.2.tgz#59643b101a227cf1f8f9536dbf44e5bfe8c32d8a"
-  integrity sha512-FfbUYPF/xiXc62cS9qi6ExCFqVK5KcSFYblJfuBhQFo9EFQmKUZ7Op9G5ZUxW0X7+Oo3+wOu0yQ9/fcbHXfyiQ==
+fs-safe@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fs-safe/-/fs-safe-1.2.0.tgz#1b2606bf546914bc4f192a7b1bb2137f775a9d6b"
+  integrity sha512-DjPOM7n63/nCdeTXDE4Q29kZNOY/wQGpUuESzdOKRVmkAzNzzoQmgFLFi4fNNp0GAwOhN17GsQs4IEAjp9CttQ==
   dependencies:
-    dir-exists-safe "^1.0.1"
-    file-exists-safe "^1.0.2"
+    dir-exists-safe "^1.1.0"
+    file-exists-safe "^1.1.0"
     make-executable "^1.0.1"
     merge-json-file "^1.0.1"
     read-dir-safe "^1.0.1"
@@ -3955,8 +3955,8 @@ fs-safe@^1.1.2:
     watch-dir-safe "^1.0.2"
     watch-file-safe "^1.0.1"
     write-dir-safe "^1.0.1"
-    write-file-safe "^1.2.2"
-    write-json-safe "^2.0.1"
+    write-file-safe "^1.3.1"
+    write-json-safe "^2.1.0"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -7641,6 +7641,13 @@ stringify-json-object@^1.0.6:
   dependencies:
     json-types "^1.0.2"
 
+stringify-json-object@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/stringify-json-object/-/stringify-json-object-1.0.7.tgz#7c5592c0c85aa247d104c3a27f5e70c67ce22ca6"
+  integrity sha512-swTYj+6RL1e4a6whybHPSw+/7X54fyEKbK/fK6uL81PMHohHawfpZDwtFU49vw/Mey6j19m9emN1YA2VE4aCog==
+  dependencies:
+    types-json "^1.2.2"
+
 strip-ansi@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
@@ -8478,7 +8485,7 @@ write-file-safe@^1.0.2, write-file-safe@^1.0.3:
   resolved "https://registry.yarnpkg.com/write-file-safe/-/write-file-safe-1.0.3.tgz#6e259879617da395a641296d459e13d3ea36575f"
   integrity sha512-bdAWuzoYTLhVmAvKU7MIy2tWUs6afawPrOaktl6YBGk28LRh5RphDLDAqoXXe2j9ZvLeh+fAblnhQ6wZ0hd+iQ==
 
-write-file-safe@^1.2.1, write-file-safe@^1.2.2:
+write-file-safe@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/write-file-safe/-/write-file-safe-1.2.2.tgz#f90659f09c59617a2be742ef21a6841f2ba4934f"
   integrity sha512-UcpxUj37t7Di3SQIy7cvGgf0Dn2YmmpBaUekuVmB3UNzyFUfwZI4sfFo3TolK8Wx9DxmnaUXPaeBF7Y/CQzfmA==
@@ -8495,6 +8502,16 @@ write-file-safe@^1.2.3:
     terminating-newline "^1.2.4"
     write-dir-safe "^1.0.0"
 
+write-file-safe@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/write-file-safe/-/write-file-safe-1.3.1.tgz#5a1c641ea7a4dfa3f604671beae8829521015eeb"
+  integrity sha512-9WC/i6b/WDNEtFFftvcnOwBD9QHmofAcURq1KsSxGsAHHTrQNbuwXApE11UcLuX0d49SU7W6CaV9Nqgaive8tw==
+  dependencies:
+    file-exists-safe "^1.1.0"
+    remove-file-safe "^1.0.1"
+    terminating-newline "^1.2.4"
+    write-dir-safe "^1.0.1"
+
 write-json-safe@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/write-json-safe/-/write-json-safe-1.0.1.tgz#9d381de54133383f6fd01319e77fc407f58bfd6e"
@@ -8510,6 +8527,14 @@ write-json-safe@^2.0.1:
   dependencies:
     stringify-json-object "^1.0.6"
     write-file-safe "^1.2.1"
+
+write-json-safe@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/write-json-safe/-/write-json-safe-2.1.0.tgz#b79f27f30e3c408a5d7d1b09c3237d6b4a0607d0"
+  integrity sha512-YORxvFx9nGlVcyhIHhUoApjeaf3Dom5KmnfQVOvDclfiS6yYhXhFXEmycksyhDlzzjKaLIwRUZDYyTg0jYlaRQ==
+  dependencies:
+    stringify-json-object "^1.0.7"
+    write-file-safe "^1.3.1"
 
 write-md-safe@^1.0.3:
   version "1.0.4"
