@@ -31,4 +31,4 @@ export default jsonFile as FileType<JSONFile>;
 export {
   JSONObject,
   WriteJSONOptions
-}
+};

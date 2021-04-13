@@ -23,7 +23,7 @@ function useBuffer(options: ReadFileOptions<boolean>): options is ReadFileOption
 function read(filePath: string) {
   return function readGeneric<T extends Args>(...[options = {}]: T) {
     return (useBuffer(options) ? readFile(filePath, options) : readFile(filePath, options)) as Promise<ReturnValue<T>>;
-  }
+  };
 }
 
 const file = fileType((filePath: string) => ({

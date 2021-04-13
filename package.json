@@ -40,14 +40,13 @@
     "fs-safe": "^1.1.2",
     "read-file-safe": "^1.0.10",
     "read-lcov-safe": "^1.0.2",
-    "read-md-safe": "^1.0.3",
+    "read-md-safe": "^1.0.4",
     "types-pkg-json": "^1.2.1",
     "types-tsconfig": "^1.2.0",
-    "write-md-safe": "^1.1.0"
+    "write-md-safe": "^1.1.3"
   },
   "devDependencies": {
-    "@bconnorwhite/bob": "^2.8.0",
-    "@types/object-map": "^1.0.1"
+    "@bconnorwhite/bob": "^2.9.4"
   },
   "eslintConfig": {
     "extends": "eslint-config-bob"

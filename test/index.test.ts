@@ -23,7 +23,7 @@ test("files", () => {
     })
   });
   expect(structure.relative).toBe("");
-  expect(structure.files().coverage.relative).toBe("coverage")
+  expect(structure.files().coverage.relative).toBe("coverage");
 });
 
 test("add files", () => {

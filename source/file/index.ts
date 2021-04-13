@@ -3,13 +3,13 @@ import path, { Parent, Path, PathHook } from "../path";
 
 type FileFields = {
   [field: string]: any;
-}
+};
 
 export type FileBase = Path & {
   exists: () => Promise<boolean | undefined>;
   remove: () => Promise<boolean | undefined>;
   watch: () => FileWatcher;
-}
+};
 
 export type FileBaseHook<T extends FileBase = FileBase> = PathHook<T>;
 
@@ -26,8 +26,8 @@ export function fileType(fields: (filePath: string) => FileFields): FileType {
         watch: () => watchFile(pathFields.path),
         ...fields(pathFields.path)
       };
-    }
-  }
+    };
+  };
 }
 
 import file from "./file";
@@ -44,4 +44,4 @@ export {
   tsConfigJSONFile,
   markdownFile,
   lcovFile
-}
+};

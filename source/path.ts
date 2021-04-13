@@ -10,7 +10,7 @@ export type Path = {
   relative: string;
 } & {
   [fieldName: string]: any;
-}
+};
 
 export type PathHook<T extends Path = Path> = (parent: Parent) => T;
 
@@ -39,5 +39,5 @@ export default function path(directory: Parent, name: string) {
     name,
     path: fullPath,
     relative: relative(root, fullPath)
-  }
+  };
 }
