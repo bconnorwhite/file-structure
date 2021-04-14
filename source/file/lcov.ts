@@ -8,7 +8,7 @@ export interface LCOVFile extends FileBase {
 }
 
 const markdownFile = fileType((filePath: string) => ({
-  read: readLCOV(filePath),
+  read: () => readLCOV(filePath),
   write: (content?: string) => writeFile(filePath, content)
 }));
 
