@@ -37,6 +37,8 @@ import tsConfigJSONFile from "./tsconfig-json";
 import markdownFile from "./markdown";
 import lcovFile from "./lcov";
 
+export { FileHook, File, Content } from "./file";
+
 export {
   file,
   jsonFile,

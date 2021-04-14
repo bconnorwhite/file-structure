@@ -8,9 +8,11 @@ import {
 import { ReturnValue, Args } from "read-file-safe";
 import { fileType, FileBase, FileType, FileBaseHook } from "./";
 
+export type Content = string | Buffer;
+
 export interface File extends FileBase {
   read: <T extends Args>(...[options]: T) => Promise<ReturnValue<T>>;
-  write: (content?: string | Buffer, options?: WriteFileOptions) => Promise<boolean | undefined>;
+  write: (content?: Content, options?: WriteFileOptions) => Promise<boolean | undefined>;
   makeExecutable: () => Promise<boolean | undefined>;
 }
 
@@ -28,7 +30,7 @@ function read(filePath: string) {
 
 const file = fileType((filePath: string) => ({
   read: read(filePath),
-  write: (content?: string | Buffer, options?: WriteFileOptions) => writeFile(filePath, content, options),
+  write: (content?: Content, options?: WriteFileOptions) => writeFile(filePath, content, options),
   makeExecutable: () => makeExecutable(filePath)
 }));
 

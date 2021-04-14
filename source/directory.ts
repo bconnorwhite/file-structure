@@ -1,5 +1,6 @@
 import merge from "deepmerge";
 import path, { Path, PathHook, Parent } from "./path";
+import { file, Content } from "./file";
 import {
   readDir,
   ReadDirOptions,
@@ -10,13 +11,18 @@ import {
   watchDir,
   DirWatcher,
   dirExists,
-  DirExistsOptions
+  DirExistsOptions,
+  WriteFileOptions
 } from "fs-safe";
 
-type DirectoryHook<F extends Files> = PathHook<Directory<F>>;
+export type DirectoryHook<F extends Files> = PathHook<Directory<F>>;
 
 export type Files = {
   [key: string]: PathHook;
+};
+
+export type FilesContent = {
+  [key: string]: FilesContent | Content;
 };
 
 function addFiles<F extends Files, N extends Files>(parent: Parent, name: string, files: F, newFiles: N): Directory<F & N> {
@@ -34,6 +40,7 @@ export interface Directory<F extends Files = Files> extends Path {
   files: () => {
     [K in keyof F]: ReturnType<F[K]>;
   };
+  writeFiles: (content: FilesContent, options?: WriteFileOptions) => Promise<(boolean | undefined)[]>;
 }
 
 function getFiles<F extends Files>(dir: Directory<F>, files: F) {
@@ -43,6 +50,39 @@ function getFiles<F extends Files>(dir: Directory<F>, files: F) {
   }, {} as {
     [K in keyof F]: ReturnType<F[K]>;
   });
+}
+
+function isContent(content: FilesContent | Content): content is Content {
+  return typeof content === "string" || Buffer.isBuffer(content);
+}
+
+function filesFromContent(filesContent: FilesContent): Files {
+  return Object.keys(filesContent).reduce((retval, name) => {
+    const content = filesContent[name];
+    if(isContent(content)) {
+      return {
+        ...retval,
+        [name]: file(name)
+      };
+    } else {
+      return {
+        ...retval,
+        [name]: directory(name, filesFromContent(content))
+      };
+    }
+  }, {} as Files);
+}
+
+function writeFiles(dir: Directory, filesContent: FilesContent, options?: WriteFileOptions) {
+  return Object.keys(filesContent).reduce((retval, fileName) => {
+    const content = filesContent[fileName];
+    if(isContent(content)) {
+      retval.push(dir.files()[fileName].write(content, options));
+    } else {
+      retval.push(...writeFiles(dir.files()[fileName] as Directory<Files>, content, options));
+    }
+    return retval;
+  }, [] as Promise<boolean | undefined>[]);
 }
 
 export function directory<F extends Files>(name: string, files: F = {} as F): DirectoryHook<F> {
@@ -56,7 +96,12 @@ export function directory<F extends Files>(name: string, files: F = {} as F): Di
       write: (options?: WriteDirOptions) => writeDir(dirPath.path, options),
       remove: (options?: RemoveDirOptions) => removeDir(dirPath.path, options),
       watch: () => watchDir(dirPath.path),
-      files: () => getFiles(dir, files)
+      files: () => getFiles(dir, files),
+      writeFiles: (filesContent: FilesContent, options?: WriteFileOptions) => {
+        const newFiles = filesFromContent(filesContent);
+        const dirWithFiles = addFiles(parent, name, files, newFiles);
+        return Promise.all(writeFiles(dirWithFiles, filesContent, options));
+      }
     };
     return dir;
   };

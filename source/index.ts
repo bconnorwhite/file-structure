@@ -1,3 +1,14 @@
 export { root } from "./root";
-export { directory, Directory } from "./directory";
-export { file, jsonFile, packageJSONFile, tsConfigJSONFile, lcovFile, markdownFile } from "./file";
+export { PathHook, Path, Parent } from "./path";
+export { directory, Directory, DirectoryHook, Files, FilesContent } from "./directory";
+export {
+  file,
+  jsonFile,
+  packageJSONFile,
+  tsConfigJSONFile,
+  lcovFile,
+  markdownFile,
+  FileHook,
+  File,
+  Content
+} from "./file";
