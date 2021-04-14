@@ -8,7 +8,7 @@ export interface MarkdownFile extends FileBase {
 }
 
 const markdownFile = fileType((filePath: string) => ({
-  read: readMarkdown(filePath),
+  read: () => readMarkdown(filePath),
   write: (content?: MarkdownContent) => writeMarkdown(filePath, content)
 }));
 
