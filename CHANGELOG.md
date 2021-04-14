@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/bconnorwhite/file-structure/compare/v1.2.0...v1.3.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* broken lcovFile.read ([588f8d6](https://github.com/bconnorwhite/file-structure/commit/588f8d63648bcca4f8d198db7fd44b70494b302e))
+* broken markdownFile.read ([f3873c0](https://github.com/bconnorwhite/file-structure/commit/f3873c09d5e670917d66ecb13d39fc848c716b04))
+
+
+### Features
+
+* directory.writeFiles ([433eb28](https://github.com/bconnorwhite/file-structure/commit/433eb289593cd7a6a175d9ee9fd3ac75f3639d4c))
+
+
+
 # [1.2.0](https://github.com/bconnorwhite/file-structure/compare/v1.1.0...v1.2.0) (2021-04-13)
 
 
