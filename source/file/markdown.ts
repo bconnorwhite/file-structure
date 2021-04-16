@@ -1,5 +1,5 @@
 import { readMarkdown, TokensList } from "read-md-safe";
-import { writeMarkdown, MarkdownContent } from "write-md-safe";
+import { writeMarkdown, MarkdownContent, Options } from "write-md-safe";
 import { fileType, FileBase, FileType } from ".";
 
 export interface MarkdownFile extends FileBase {
@@ -9,7 +9,7 @@ export interface MarkdownFile extends FileBase {
 
 const markdownFile = fileType((filePath: string) => ({
   read: () => readMarkdown(filePath),
-  write: (content?: MarkdownContent) => writeMarkdown(filePath, content)
+  write: (content?: MarkdownContent, options?: Options | undefined) => writeMarkdown(filePath, content, options)
 }));
 
 export default markdownFile as FileType<MarkdownFile>;
