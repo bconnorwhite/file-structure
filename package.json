@@ -43,7 +43,7 @@
     "read-md-safe": "^1.0.4",
     "types-pkg-json": "^1.2.1",
     "types-tsconfig": "^1.2.0",
-    "write-md-safe": "^1.1.3"
+    "write-md-safe": "^1.2.0"
   },
   "devDependencies": {
     "@bconnorwhite/bob": "^2.9.4",
