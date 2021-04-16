@@ -4,7 +4,7 @@ import { fileType, FileBase, FileType } from ".";
 
 export interface MarkdownFile extends FileBase {
   read: () => Promise<TokensList | undefined>;
-  write: (content?: MarkdownContent) => Promise<boolean | undefined>;
+  write: (content?: MarkdownContent, options?: Options | undefined) => Promise<boolean | undefined>;
 }
 
 const markdownFile = fileType((filePath: string) => ({
