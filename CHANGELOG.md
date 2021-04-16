@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/bconnorwhite/file-structure/compare/v1.3.0...v1.4.0) (2021-04-16)
+
+
+### Features
+
+* directory.file, directory.subdirectory ([e5c85a2](https://github.com/bconnorwhite/file-structure/commit/e5c85a2c4bda662d38b66d2e9090747c12e8e7d5))
+
+
+
 # [1.3.0](https://github.com/bconnorwhite/file-structure/compare/v1.2.0...v1.3.0) (2021-04-14)
 
 
