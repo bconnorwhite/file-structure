@@ -12,3 +12,5 @@ export {
   File,
   Content
 } from "./file";
+export { PackageJSON } from "types-pkg-json";
+export { JSONObject } from "fs-safe";
