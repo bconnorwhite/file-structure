@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/bconnorwhite/file-structure/compare/v1.5.0...v1.5.1) (2021-04-16)
+
+
+### Bug Fixes
+
+* markdown write types fix ([6d1e3bc](https://github.com/bconnorwhite/file-structure/commit/6d1e3bc289d869a0b4ae976ed62c456b86697eb3))
+
+
+
 # [1.5.0](https://github.com/bconnorwhite/file-structure/compare/v1.4.0...v1.5.0) (2021-04-16)
 
 
