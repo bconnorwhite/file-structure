@@ -1,3 +1,13 @@
+# [1.5.0](https://github.com/bconnorwhite/file-structure/compare/v1.4.0...v1.5.0) (2021-04-16)
+
+
+### Features
+
+* add markdown write options ([e1505c2](https://github.com/bconnorwhite/file-structure/commit/e1505c23a27b524aca1efae0441806409f225a88))
+* add type exports ([667d301](https://github.com/bconnorwhite/file-structure/commit/667d301f84a5eacfe4e11d66f91e6abc002b2747))
+
+
+
 # [1.4.0](https://github.com/bconnorwhite/file-structure/compare/v1.3.0...v1.4.0) (2021-04-16)
 
 
