@@ -73,6 +73,15 @@ directory.add({
 });
 ```
 
+Or get a file/subdirectory relative to a directory:
+```ts
+const subFile = directory.file("test.txt");
+
+const subDirectory = directory.subdirectory("sub", {
+  myNewFile: file("test.txt");
+});
+```
+
 Several other file types are included with specialized return types:
 
 ```ts

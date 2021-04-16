@@ -1,6 +1,6 @@
 import merge from "deepmerge";
 import path, { Path, PathHook, Parent } from "./path";
-import { file, Content } from "./file";
+import { file, Content, File } from "./file";
 import {
   readDir,
   ReadDirOptions,
@@ -37,6 +37,8 @@ export interface Directory<F extends Files = Files> extends Path {
   write: (options?: WriteDirOptions) => Promise<boolean | undefined>;
   remove: (options?: RemoveDirOptions) => Promise<boolean | undefined>;
   watch: () => DirWatcher;
+  file: (name: string) => File;
+  subdirectory: <G extends Files>(name: string, files?: G) => Directory<G>;
   files: () => {
     [K in keyof F]: ReturnType<F[K]>;
   };
@@ -96,6 +98,12 @@ export function directory<F extends Files>(name: string, files: F = {} as F): Di
       write: (options?: WriteDirOptions) => writeDir(dirPath.path, options),
       remove: (options?: RemoveDirOptions) => removeDir(dirPath.path, options),
       watch: () => watchDir(dirPath.path),
+      file: (fileName: string): File => {
+        return file(fileName)(dir);
+      },
+      subdirectory: <G extends Files>(dirName: string, subfiles: G = {} as G) => {
+        return directory(dirName, subfiles)(dir);
+      },
       files: () => getFiles(dir, files),
       writeFiles: (filesContent: FilesContent, options?: WriteFileOptions) => {
         const newFiles = filesFromContent(filesContent);

@@ -33,3 +33,23 @@ test("add files", () => {
   });
   expect(structure2.files().file.relative).toEqual("file.txt");
 });
+
+test("file", () => {
+  const structure = root({});
+  const subfile = structure.file("test.txt");
+  expect(subfile.relative).toEqual("test.txt");
+});
+
+test("empty subdirectory", () => {
+  const structure = root({});
+  const subdirectory = structure.subdirectory("test");
+  expect(subdirectory.relative).toEqual("test");
+});
+
+test("subdirectory", () => {
+  const structure = root({});
+  const subdirectory = structure.subdirectory("test", {
+    test: file("file.txt")
+  });
+  expect(subdirectory.files().test.relative).toEqual("test/file.txt");
+});
