@@ -1,3 +1,21 @@
+## [1.6.2](https://github.com/bconnorwhite/file-structure/compare/v1.6.1...v1.6.2) (2023-01-01)
+
+
+### Bug Fixes
+
+* bump caniuse ([bf0e1c0](https://github.com/bconnorwhite/file-structure/commit/bf0e1c0ebacaf9fdd7f119db18e664e96c8f17a4))
+
+
+
+## [1.6.1](https://github.com/bconnorwhite/file-structure/compare/v1.6.0...v1.6.1) (2023-01-01)
+
+
+### Bug Fixes
+
+* duplicate path when path is specified in root ([b8026c9](https://github.com/bconnorwhite/file-structure/commit/b8026c95ba0a28af433f49e05a83b67d2c7b486a))
+
+
+
 # [1.6.0](https://github.com/bconnorwhite/file-structure/compare/v1.5.1...v1.6.0) (2021-04-16)
 
 
